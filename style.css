@@ -48,6 +48,7 @@ body {
 #name {
   visibility: hidden;
   cursor: default;
+  user-select: none;
 }
 
 .contact {
