@@ -1,36 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>jakobarnell.se</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="icon"
-      href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='95'>👋</text></svg>"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌀</text></svg>"
     />
+    <title>jakobarnell.se • Jakob Arnell</title>
+    <meta name="description" content="Jakob Arnell" />
+    <link rel="stylesheet" href="style.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather@400:7000&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap"
       rel="stylesheet"
     />
-
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-38766852-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-38766852-1');
-    </script>
   </head>
-
   <body>
     <div class="container">
-      <h1 class="title">Hej! <span class="hand">👋</span></h1>
+      <div class="name-wrapper">
+        <svg
+          viewBox="0 0 200 200"
+          width="200"
+          height="200"
+          xmlns="http://www.w3.org/2000/svg"
+          id="name"
+        >
+          <defs>
+            <path
+              id="a"
+              d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
+            />
+            <linearGradient
+              id="grad"
+              x1="0"
+              y1="0"
+              x2="400"
+              y2="0"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0%" stop-color="#3b82f6" />
+              <stop offset="16.5%" stop-color="#a855f7" />
+              <stop offset="33%" stop-color="#ec4899" />
+              <stop offset="50%" stop-color="#3b82f6" />
+              <stop offset="66.5%" stop-color="#a855f7" />
+              <stop offset="83%" stop-color="#ec4899" />
+              <stop offset="100%" stop-color="#3b82f6" />
+              <animateTransform
+                attributeName="gradientTransform"
+                type="translate"
+                from="0 0"
+                to="-200 0"
+                dur="6s"
+                repeatCount="indefinite"
+              />
+            </linearGradient>
+          </defs>
+          <text
+            font-size="33"
+            font-family="Inter, sans-serif"
+            font-weight="900"
+            fill="url(#grad)"
+          >
+            <textPath href="#a" startOffset="0%">
+              <tspan letter-spacing="5">JAKOB</tspan>
+              <tspan letter-spacing="5">&nbsp;&nbsp;•&nbsp;&nbsp;</tspan>
+              <tspan letter-spacing="5">ARNELL</tspan>
+              <tspan letter-spacing="5">&nbsp;&nbsp;•&nbsp;&nbsp;</tspan>
+            </textPath>
+          </text>
+        </svg>
+      </div>
+      <div class="contact">hej&#64;jakobarnell&#46;se</div>
     </div>
+
+    <script>
+      const svg = document.getElementById("name");
+      document.fonts.ready.then(() => {
+        svg.style.visibility = "visible";
+      });
+
+      let angle = 0;
+
+      function animate() {
+        angle += svg.matches(":hover") ? 2.5 : 1.2;
+        svg.style.transform = `rotate(${angle}deg)`;
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
   </body>
 </html>
