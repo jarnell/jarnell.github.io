@@ -1,13 +1,32 @@
+:root {
+  --color-text-dark: #46495c;
+  --color-text-light: #dfe4f6;
+  --color-background-light: #fafafa;
+  --color-background-dark: #07070b;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font:
+    400 14px/1.5 system-ui,
+    sans-serif;
+  letter-spacing: 0.5px;
+  background: var(--color-background-light);
+  color: var(--color-text-dark);
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--color-background-dark);
+    color: var(--color-text-light);
+  }
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  font:
-    400 14px/1.5 system-ui,
-    sans-serif;
-  color: #46495c;
 }
 
 .container {
